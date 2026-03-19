@@ -1,0 +1,23 @@
+.practice-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  min-height: 480px;
+  position: relative;
+}
+
+.mario-card:hover {
+  border-color: #e52521;
+  box-shadow: 0 10px 20px rgba(229, 37, 33, 0.4);
+}
+
+.game2-card:hover {
+  border-color: #43b047;
+  box-shadow: 0 10px 20px rgba(67, 176, 71, 0.4);
+}
+
+.game3-card:hover {
+  border-color: #049cd8;
+  box-shadow: 0 10px 20px rgba(4, 156, 216, 0.4);
+}

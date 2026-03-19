@@ -1,0 +1,99 @@
+.character-panel {
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.color-btn {
+  background: transparent;
+  border: 4px solid transparent;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-btn.selected {
+  border-color: #50ef39;
+  background-color: rgba(80, 239, 57, 0.2);
+}
+
+/* Base Crewmate CSS Construction */
+.crewmate {
+  width: 50px;
+  height: 65px;
+  border-radius: 25px 25px 10px 10px;
+  position: relative;
+  border: 4px solid var(--au-border);
+  box-shadow: inset -5px -5px 0 rgba(0,0,0,0.3);
+}
+
+/* Add generic drop shadow to crewmates inside selector */
+.color-btn .crewmate {
+  box-shadow: inset -5px -5px 0 rgba(0,0,0,0.3), 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.crewmate .visor {
+  width: 34px;
+  height: 22px;
+  background-color: #9cd3e4;
+  border: 4px solid var(--au-border);
+  border-radius: 12px;
+  position: absolute;
+  top: 10px;
+  right: -8px;
+  box-shadow: inset 4px 4px 0 white, inset -2px -2px 0 #5790a1;
+  z-index: 2;
+}
+
+.crewmate .backpack {
+  width: 15px;
+  height: 40px;
+  border: 4px solid var(--au-border);
+  border-radius: 8px;
+  border-right: none;
+  position: absolute;
+  left: -12px;
+  top: 10px;
+  z-index: 0;
+  box-shadow: inset 0 -5px 0 rgba(0,0,0,0.3);
+}
+
+/* Specific Crewmate Colors mapping to our index.css vars */
+.color-btn.red .crewmate, .color-btn.red .backpack { background-color: var(--au-red); }
+.color-btn.blue .crewmate, .color-btn.blue .backpack { background-color: var(--au-blue); }
+.color-btn.green .crewmate, .color-btn.green .backpack { background-color: var(--au-green); }
+.color-btn.pink .crewmate, .color-btn.pink .backpack { background-color: var(--au-pink); }
+.color-btn.orange .crewmate, .color-btn.orange .backpack { background-color: var(--au-orange); }
+.color-btn.yellow .crewmate, .color-btn.yellow .backpack { background-color: var(--au-yellow); }
+.color-btn.black .crewmate, .color-btn.black .backpack { background-color: var(--au-black); }
+.color-btn.white .crewmate, .color-btn.white .backpack { background-color: var(--au-white); }
+.color-btn.purple .crewmate, .color-btn.purple .backpack { background-color: var(--au-purple); }
+.color-btn.brown .crewmate, .color-btn.brown .backpack { background-color: var(--au-brown); }
+.color-btn.cyan .crewmate, .color-btn.cyan .backpack { background-color: var(--au-cyan); }
+.color-btn.lime .crewmate, .color-btn.lime .backpack { background-color: var(--au-lime); }
+
+.action-row {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .color-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

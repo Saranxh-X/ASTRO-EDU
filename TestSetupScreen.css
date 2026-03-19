@@ -1,0 +1,88 @@
+.test-setup-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+}
+
+.setup-form {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  border: 2px solid #444;
+}
+
+.setup-group {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setup-group label {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stepper-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--au-cyan);
+}
+
+.stepper-btn {
+  background: var(--au-cyan);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--au-cyan);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #666;
+  border-color: #666;
+}
+
+.stepper-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  min-width: 60px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.start-test-btn {
+  width: 100%;
+  margin-top: 20px;
+  background-color: var(--au-green);
+  font-size: 1.5rem;
+  padding: 15px;
+}
+
+.start-test-btn:hover {
+  background-color: #2ECC71;
+  box-shadow: 0 0 15px var(--au-green);
+}

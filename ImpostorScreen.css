@@ -1,0 +1,183 @@
+.impostor-screen {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--au-dark-bg);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.defeat-text {
+  position: absolute;
+  top: 15%;
+  font-size: 6rem;
+  color: var(--au-red);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 4px 4px 0 var(--au-border);
+  animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.restart-hint {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.5rem;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s ease 2s forwards;
+}
+
+.kill-animation-container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Re-using crewmate base logic from CharacterSelection for bodies */
+.impostor-body, .victim-body {
+  width: 80px;
+  height: 100px;
+  border-radius: 40px 40px 15px 15px;
+  position: absolute;
+  border: 4px solid var(--au-border);
+}
+
+.visor {
+  width: 50px;
+  height: 35px;
+  background-color: #9cd3e4;
+  border: 4px solid var(--au-border);
+  border-radius: 18px;
+  position: absolute;
+  top: 15px;
+  box-shadow: inset 4px 4px 0 white, inset -2px -2px 0 #5790a1;
+  z-index: 2;
+}
+
+.backpack {
+  width: 20px;
+  height: 60px;
+  border: 4px solid var(--au-border);
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  z-index: 0;
+}
+
+/* Victim specific tweaks */
+.victim-body {
+  right: 100px;
+  background-color: var(--target-bg); 
+  /* We map playerColor via inline scale below */
+}
+.victim-body .visor { right: -10px; }
+.victim-body .backpack { left: -15px; border-right: none; }
+
+/* Impostor specific tweaks */
+.impostor-body {
+  left: 50px;
+  z-index: 5;
+  animation: strike 1.5s forwards;
+}
+.impostor-body .visor { right: -10px; }
+.impostor-body .backpack { left: -15px; border-right: none; }
+
+.knife {
+  position: absolute;
+  width: 60px;
+  height: 15px;
+  background-color: #ddd;
+  border: 4px solid var(--au-border);
+  border-radius: 0 10px 10px 0;
+  top: 50px;
+  right: -50px;
+  opacity: 0;
+  transform-origin: left;
+  animation: knifeStrike 1.5s forwards;
+}
+.knife::after {
+  content: '';
+  position: absolute;
+  left: -15px; top: -5px;
+  width: 15px; height: 25px;
+  background-color: var(--au-black);
+  border: 2px solid var(--au-border);
+}
+
+.flash-overlay {
+  position: absolute;
+  top: -50vh; left: -50vw; right: -50vw; bottom: -50vh;
+  background-color: red;
+  opacity: 0;
+  pointer-events: none;
+  animation: redFlash 4s forwards;
+  z-index: 10;
+}
+
+/* Body color mixins using global vars */
+.victim-body.red, .impostor-body.red { background-color: var(--au-red); } .victim-body.red .backpack, .impostor-body.red .backpack { background-color: var(--au-red); }
+.victim-body.blue { background-color: var(--au-blue); } .victim-body.blue .backpack { background-color: var(--au-blue); }
+.victim-body.green { background-color: var(--au-green); } .victim-body.green .backpack { background-color: var(--au-green); }
+.victim-body.pink { background-color: var(--au-pink); } .victim-body.pink .backpack { background-color: var(--au-pink); }
+.victim-body.orange { background-color: var(--au-orange); } .victim-body.orange .backpack { background-color: var(--au-orange); }
+.victim-body.yellow { background-color: var(--au-yellow); } .victim-body.yellow .backpack { background-color: var(--au-yellow); }
+.victim-body.black { background-color: var(--au-black); } .victim-body.black .backpack { background-color: var(--au-black); }
+.victim-body.white { background-color: var(--au-white); } .victim-body.white .backpack { background-color: var(--au-white); }
+.victim-body.purple { background-color: var(--au-purple); } .victim-body.purple .backpack { background-color: var(--au-purple); }
+.victim-body.brown { background-color: var(--au-brown); } .victim-body.brown .backpack { background-color: var(--au-brown); }
+.victim-body.cyan { background-color: var(--au-cyan); } .victim-body.cyan .backpack { background-color: var(--au-cyan); }
+.victim-body.lime { background-color: var(--au-lime); } .victim-body.lime .backpack { background-color: var(--au-lime); }
+
+/* Animations */
+@keyframes slideDown {
+  from { transform: translateY(-100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes strike {
+  0% { transform: translateX(-50px); }
+  35% { transform: translateX(50px); }
+  45% { transform: translateX(50px); }
+  60% { transform: translateX(50px) rotate(15deg); }
+  100% { transform: translateX(50px) rotate(15deg); }
+}
+
+@keyframes knifeStrike {
+  0% { opacity: 0; transform: translateX(-20px) rotate(-45deg); }
+  34% { opacity: 0; transform: translateX(-20px) rotate(-45deg); }
+  35% { opacity: 1; transform: translateX(0) rotate(0deg); }
+  40% { opacity: 1; transform: translateX(50px) rotate(0deg); } /* STAB */
+  45% { opacity: 1; transform: translateX(40px) rotate(-10deg); }
+  100% { opacity: 1; transform: translateX(40px) rotate(-10deg); }
+}
+
+@keyframes redFlash {
+  0% { opacity: 0; }
+  39% { opacity: 0; }
+  40% { opacity: 0.6; }
+  45% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Victim falling animation */
+.victim-body {
+  animation: fallOver 1.5s forwards;
+}
+
+@keyframes fallOver {
+  0% { transform: rotate(0); }
+  40% { transform: rotate(0); }
+  50% { transform: rotate(90deg) translate(20px, 40px); }
+  100% { transform: rotate(90deg) translate(20px, 40px); }
+}

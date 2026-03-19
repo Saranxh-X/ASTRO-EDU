@@ -1,0 +1,56 @@
+.subject-list-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  min-height: 500px;
+  position: relative;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.subject-card {
+  background-color: var(--au-dark-bg);
+  border: 4px solid var(--au-border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
+}
+
+.light-mode .subject-card {
+  background-color: var(--au-white);
+}
+
+.subject-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  filter: brightness(1.2);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.light-mode .subject-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subject-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid var(--au-border);
+  margin-bottom: 15px;
+}
+
+.subject-card h3 {
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  font-weight: bold;
+}

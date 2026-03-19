@@ -1,0 +1,54 @@
+.task-bar-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 350px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.task-label {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 0 var(--au-border);
+  letter-spacing: 1px;
+}
+
+.task-bar-track {
+  width: 100%;
+  height: 28px;
+  background-color: var(--taskbar-bg);
+  border: 4px solid var(--au-border);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 3px 3px 0 var(--au-border);
+}
+
+.task-bar-fill {
+  height: 100%;
+  background-color: var(--taskbar-fill);
+  border-right: 3px solid var(--au-border);
+  transition: width 0.5s ease-out;
+  position: relative;
+}
+
+/* Adds the Among Us glossy/rounded feel */
+.task-bar-glint {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .task-bar-container {
+    width: 250px;
+  }
+}

@@ -1,16 +1,29 @@
-# React + Vite
+# mario-html
+Mario runs through each level trying to reach the castle on the other side to save the princess. Each level contains various enemies, coins to collect, and mushrooms to power-up Mario. Mario's primary form of attack is jumping on top of enemies but touching enemies from the sides results in loss of a life.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ ## Controls
 
-Currently, two official plugins are available:
+| Action     | Key Input                       |
+|:----------:|:-------------------------------:|
+| Move Left  | 'A' / Left-Arrow                |
+| Move Right | 'D' / Right-Arrow               |
+| Jump       | 'W' / Spacebar / Up-Arrow       |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies Used
 
-## React Compiler
+Mario JS was build using the following technologies:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-  JavaScript used for overall game structure and logic.
 
-## Expanding the ESLint configuration
+- Minified version of jQuery used to detect user input.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- A HTML5 Canvas used for rendering of the current game state and all game entities.
+
+
+
+## Bonus features
+There are many additional feature that could be added in the future. Some anticipated updates are:
+- you can build your own map or lavel and play (map editor integrated)
+- Add the ability to grab flower power-ups and shoot fireballs at enemies.
+- Underground portion of level.
+- Multiple levels and additional enemy types.
